@@ -1,0 +1,20 @@
+app = "REPLACE_WITH_YOUR_APP_NAME"
+
+[env]
+  PASSWORD = "your_password_here"
+
+[[services]]
+  internal_port = 8080
+  protocol = "tcp"
+
+  [[services.ports]]
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
+
+[mounts]
+  source = "code_data"
+  destination = "/home/coder/project"
